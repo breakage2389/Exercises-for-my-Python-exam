@@ -14,7 +14,7 @@
 # nums = NumList([1, "a", 3.5, None, 7, [], 2])
 # nums.show()
 # print(nums.avg())
-
+from curses.ascii import isdigit
 
 
 # 4зад. Дефинирайте клас Shape с едно поле задаващо вида на фигурата.
@@ -68,3 +68,64 @@
 #
 # except Exception:
 #     print("Възникна неочаквана грешка.")
+
+# zad 6 NIKOLAY
+# - Ура, можете да построите триьгьлник!
+# - Нищо няма да работи с отрицателни числа!
+# - Трябва да введете само числа!
+# - Жалко, но не можете да направите тригьлник от това !
+# Дефинирайте метод get_triangle_type(), който връща като резултат типа на триььлника :
+# равностранен, равнобедрен или разностранен
+class TriangleChecker:
+    def __init__(self, a, b, c):
+
+        if not all(isinstance(x, (int, float)) for x in (a, b, c)):
+            self.valid = False
+            self.message = "Трябва да введете само числа!"
+            return
+        self.a, self.b, self.c = a, b, c
+        self.valid = True
+
+    def is_triangle(self):
+        if not self.valid:
+            return False
+
+        if self.a <= 0 or self.b <= 0 or self.c <= 0:
+            self.message = "Нищо няма да работи с отрицателни числа!"
+            return False
+
+        if self.a + self.b > self.c and self.a + self.c > self.b and self.b + self.c > self.a:
+            self.message = "Ура, можете да построите триъгълник!"
+            return True
+        else:
+            self.message = "Жалко, но не можете да направите триъгълник от това !"
+            return False
+
+    def get_triangle_type(self):
+        if not self.is_triangle():
+            return self.message
+
+        if self.a == self.b == self.c:
+            return "равностранен"
+        elif self.a == self.b or self.a == self.c or self.b == self.c:
+            return "равнобедрен"
+        else:
+            return "разностранен"
+
+t1 = TriangleChecker(5, 5, 5)
+print(t1.get_triangle_type())  # равностранен
+
+t2 = TriangleChecker(5, 5, 3)
+print(t2.get_triangle_type())  # равнобедрен
+
+t3 = TriangleChecker(3, 4, 5)
+print(t3.get_triangle_type())  # разностранен
+
+t4 = TriangleChecker(1, 2, 10)
+print(t4.get_triangle_type())  # Жалко, но не можете да направите триъгълник от това !
+
+t5 = TriangleChecker("a", 2, 3)
+print(t5.get_triangle_type())  # Трябва да введете само числа!
+
+t6 = TriangleChecker(-1, 2, 2)
+print(t6.get_triangle_type())  # Нищо няма да работи с отрицателни числа!
