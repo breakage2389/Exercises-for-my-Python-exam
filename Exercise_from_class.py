@@ -40,14 +40,16 @@
 
 #vtori spisuk
 l1 = list(range(301, 317))
-l2 =[]
-ar = [] # for arthimethic l2
-for i in l1:
-    if i % 2 ==0 or i % 3 == 0:
-        l2.append(i)
-count_ar = 0
-for idx, val in enumerate(l2):
-    if val % 2 != 0:
-        ar.append(val)
-        count_ar += 1
-print(ar)
+
+l2 = [i for i in l1 if i % 2 == 0 or i % 3 == 0]
+
+ar = l2[1::2]
+print("ar:", ar)
+print("Средноаритметично:", sum(ar) / len(ar))
+
+ar_chetno = [x for x in ar if x % 2 == 0]
+if ar_chetno:
+    min_chetno = min(ar_chetno)
+    ar = [x for x in ar if x != min_chetno]
+
+print("ar без минималното четно:", ar)
