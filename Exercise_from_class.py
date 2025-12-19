@@ -10,3 +10,18 @@ while True:
         print("Invalid input")
     except ArithmeticError:
         print("Invalid input -> arithmetic error")
+
+l1= []
+for i in range(n):
+    while True:
+        try:
+            addn =int(input("Enter a number |300< addn < 3000: "))
+            if not 300 < addn < 30000:
+                print("Invalid input |300 < addn < 30000|")
+                continue
+            else:
+                l1.append(addn)
+                break
+        except ValueError:
+            print("Invalid input -> ValueError")
+
