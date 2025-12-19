@@ -45,12 +45,9 @@ ar = [] # for arthimethic l2
 for i in l1:
     if i % 2 ==0 or i % 3 == 0:
         l2.append(i)
-print(l2)
 count_ar = 0
-for i in l2:
-    if i % 2 != 0:
+for idx, val in enumerate(l2):
+    if val % 2 != 0:
+        ar.append(val)
         count_ar += 1
-        ar.append(i)
 print(ar)
-result_ar = sum(ar) / count_ar
-print(result_ar)
