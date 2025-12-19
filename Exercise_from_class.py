@@ -24,4 +24,9 @@ for i in range(n):
                 break
         except ValueError:
             print("Invalid input -> ValueError")
+count = 0
+for z in l1:
 
+    if ((z //10)%10) %4 ==0: #Tuk proverqwame dali deseticata na dadeno chislo se deli na 4 bez ostatuk
+        count += 1
+print(count)
