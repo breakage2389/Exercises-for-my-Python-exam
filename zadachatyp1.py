@@ -55,13 +55,13 @@ import random
 # print(min_index , min_value)
 #
 
-lst_1 = [-25, 21 ,4,5 , 25 ,75, 50 ,125]
-lst_2 = []
-for num in lst_1:
-    if 10<= num <= 99 or -99<= num <=-10:
-        if num % 5 ==0:
-            lst_2.append(num)
-print(lst_2)
+# lst_1 = [-25, 21 ,4,5 , 25 ,75, 50 ,125]
+# lst_2 = []
+# for num in lst_1:
+#     if 10<= num <= 99 or -99<= num <=-10:
+#         if num % 5 ==0:
+#             lst_2.append(num)
+# print(lst_2)
 
 
 # collector = 1
@@ -70,16 +70,108 @@ print(lst_2)
 #     collector *= i
 # print(collector)
 
-lst_2 = [num for i, num in enumerate(lst_2) if not (i % 2 != 0 and num % 2 == 0)]
-print(lst_2)
+# lst_2 = [num for i, num in enumerate(lst_2) if not (i % 2 != 0 and num % 2 == 0)]
+# print(lst_2)
+#
+# if len(lst_2) == len(lst_1):
+#     print('fine sa')
+# elif len(lst_2) < len(lst_1): #l2= [1,2,3,4]
+#     sreda = len(lst_2)//2
+#     novochislo = lst_2[0] * lst_2[-1]
+#     lst_2.insert(sreda, novochislo)
+# elif len(lst_1) > len(lst_2):
+#     sreda = len(lst_1) // 2
+#     novochislo = lst_1[0] * lst_1[-1]
+#     lst_1.insert(sreda, novochislo)
 
-if len(lst_2) == len(lst_1):
-    print('fine sa')
-elif len(lst_2) < len(lst_1): #l2= [1,2,3,4]
-    sreda = len(lst_2)//2
-    novochislo = lst_2[0] * lst_2[-1]
-    lst_2.insert(sreda, novochislo)
-elif len(lst_1) > len(lst_2):
-    sreda = len(lst_1) // 2
-    novochislo = lst_1[0] * lst_1[-1]
-    lst_1.insert(sreda, novochislo)
+#zad2
+class Market:
+    def __init__(self , barcod , name , manufacturer , price , quantity ):
+        self.barcod = barcod
+        self.name = name
+        self.manufacturer = manufacturer
+        self.price = price
+        self.quantity = quantity
+
+    def sale(self, quantity):
+        self.quantity -= quantity
+        return self.quantity
+
+    def discount(self):
+        if 30 <= self.price <= 50:
+            discount_value = self.price * 0.05
+            self.price -= discount_value
+        elif 10 <= self.price <= 29:
+            discount_value = self.price * 0.07
+            self.price -= discount_value
+        else:
+            # Ако цената е над 50 или под 10, няма отстъпка
+            pass
+        return self.price
+# n= int(input('N: '))
+# product_list = []
+# for i in range(n):
+#     print('Product number -> ',i+1)
+#     barcod = int(input('Barcod: '))
+#     name = input('Name: ')
+#     manufacturer = input('Manufacturer: ')
+#     price = float(input('Price: '))
+#     quantity = int(input('Quantity: '))
+#     new_product = Market(barcod , name , manufacturer , price, quantity)
+#     new_product.discount()
+#     product_list.append(new_product)
+#
+# print("\n--- Product Inventory ---")
+# for product in product_list:
+#     print(f'barcode ={product.barcod} name = {product.name} , manufacturer = {product.manufacturer} ,'
+#           f' price = {product.price}, quantity = {product.quantity}')
+#
+# def search_by_barcod(product_list , barcod):
+#     for code in product_list:
+#         if code.barcod == barcod:
+#             print(f'barcode ={code.barcod} name = {code.name} , manufacturer = {code.manufacturer} ,'
+#                   f' price = {code.price}, quantity = {code.quantity}')
+#         else:
+#             print('Wrong barcode!!!')
+#
+# print('*************')
+# search_by_barcod(product_list , 30)
+
+nike_products = [
+    Market(1001, "Air Max 270", "Nike", 280.00, 3),
+    Market(1002, "Revolution 6", "Nike", 45.00, 25),  # Тук ще се приложи 5% отстъпка
+    Market(1003, "Downshifter 12", "Nike", 25.00, 15), # Тук ще се приложи 7% отстъпка
+    Market(1004, "Jordan Low", "Nike", 210.00, 5),
+    Market(1005, "Court Vision", "Nike", 35.00, 20)    # Тук ще се приложи 5% отстъпка
+]
+count = 0
+for i in nike_products:
+    if i.manufacturer == "Nike":
+        count += i.price
+
+count = count / len(nike_products)
+
+
+
+# def search_by_manufacturer(product_list , manufacturer):
+#     for product in product_list:
+#         if product.manufacturer == manufacturer and product.price <= count:
+#             print(product.name , product.price)
+#
+# search_by_manufacturer(nike_products, "Nike")
+
+# def sort_by_quantity(nike_products):
+#     sorted_nike_products = sorted(nike_products, key = lambda x: x.quantity) #mnogo vajno!!
+#     for i in sorted_nike_products:
+#         print(i.quantity , i.barcod , i.name, i.manufacturer, i.price)
+#
+# sort_by_quantity(nike_products)
+
+def delete_by_name(product_list, name):
+    product_list[:] = [p for p in product_list if not (p.name == name and p.quantity <= 3)]
+
+    for i in product_list:
+        print(f"Баркод: {i.barcod}, Име: {i.name}, Количество: {i.quantity}")
+
+
+delete_by_name(nike_products, "Air Max 270")
