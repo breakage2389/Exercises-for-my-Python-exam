@@ -64,9 +64,22 @@ for num in lst_1:
 print(lst_2)
 
 
-collector = 1
-odd_lst_2 = lst_2[1::2]
-for i in odd_lst_2:
-    collector *= i
-print(collector)
+# collector = 1
+# odd_lst_2 = lst_2[1::2]
+# for i in odd_lst_2:
+#     collector *= i
+# print(collector)
 
+lst_2 = [num for i, num in enumerate(lst_2) if not (i % 2 != 0 and num % 2 == 0)]
+print(lst_2)
+
+if len(lst_2) == len(lst_1):
+    print('fine sa')
+elif len(lst_2) < len(lst_1): #l2= [1,2,3,4]
+    sreda = len(lst_2)//2
+    novochislo = lst_2[0] * lst_2[-1]
+    lst_2.insert(sreda, novochislo)
+elif len(lst_1) > len(lst_2):
+    sreda = len(lst_1) // 2
+    novochislo = lst_1[0] * lst_1[-1]
+    lst_1.insert(sreda, novochislo)
