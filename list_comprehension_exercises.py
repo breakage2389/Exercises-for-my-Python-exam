@@ -39,8 +39,8 @@ class Market:
 nike_products = [
     Market(1001, "Air Max 270", "Nike", 280.00, 10),
     Market(1002, "Revolution 6", "Nike", 45.00, 25),
-    Market(1003, "Downshifter 12", "Nike", 25.00, 3),  # < 10
-    Market(1004, "Jordan Low", "Nike", 210.00, 5),     # < 10
+    Market(1003, "Downshifter 12", "Nike", 25.00, 3),
+    Market(1004, "Jordan Low", "Nike", 210.00, 5),
     Market(1005, "Court Vision", "Nike", 35.00, 20)
 ]
 # l1 = [x.name for x in nike_products if x.quantity < 10 ]
