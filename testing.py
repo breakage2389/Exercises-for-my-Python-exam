@@ -15,6 +15,11 @@
 # exam_list_2 = [0 if x<avr_e2 else x for x in exam_list_2]
 # print(exam_list_2)
 
-lst = [10, 20, 30, 40]
+lst = [10, 20, 30, 40, 50]
 
-lst.pop(2)
+a = lst.pop(1)
+# [10,30, 40, 50]
+print(lst)
+b = lst.pop(2)
+# [10,30, , 50]
+print(lst)
