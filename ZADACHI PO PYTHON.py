@@ -43,13 +43,4 @@
 # l2_final = l2[1::2]
 # print(l2_final)
 
-list = [1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9]
 
-max_idx = None
-max_el = None
-for i,e in enumerate(list):
-    if max_el is None or e > max_el:
-        max_el = e
-        max_idx = i
-
-print(max_el,max_idx)
