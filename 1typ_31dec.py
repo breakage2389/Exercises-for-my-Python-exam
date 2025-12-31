@@ -35,3 +35,4 @@ print(sum(list1_even)/len(list1_even))
 list2 = [x for x in list1 if 100 <= x <= 999 and x%3 ==0]
 
 list2 = [13 if i% 2==1 else list2[i] for i in range(len(list2))]
+
