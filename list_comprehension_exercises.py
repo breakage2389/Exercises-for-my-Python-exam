@@ -144,3 +144,32 @@ nike_products = [
 # Задача: Направи списък от всички числа в матрицата, но само ако са четни.
 # matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 # l1st = [num for row in matrix for num in row if num %2 ==0 ]
+
+# 11 От списък с цени в лева върни само тези над 100, намалени с 20%.
+# prices = [50, 120, 80, 200, 150]
+# prices = [(x-x*(2/10)) for x in prices if x >100]
+# print(prices)
+
+# 12 От списък с думи върни само тези с дължина ≥ 5, в uppercase.
+# words = ["apple", "kiwi", "banana", "fig", "orange"]
+# words = [x.upper() for x in words if len(x)> 5]
+# print(words)
+
+#13 Върни всички елементи на четни позиции, умножени по индекса им.
+# nums = [3, 5, 7, 9, 11]
+# nums = [nums[i]*i  for i in range(len(nums)) if i%2==0]
+# print(nums)
+
+#14 От списък с числа върни:x*x ако е четно ;x ако е нечетно
+# nums = [1, 2, 3, 4, 5]
+# nums = [x*x if x%2==0 else x for x in nums]
+# print(nums)
+
+# 155. Вложен list comprehension.От матрица върни само четните числа, сплескани в един списък.
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+matrix = [x for row in matrix for x in row if x%2==0 ]
+print(matrix)
