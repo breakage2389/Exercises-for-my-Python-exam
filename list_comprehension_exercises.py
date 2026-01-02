@@ -166,10 +166,10 @@ nike_products = [
 # print(nums)
 
 # 155. Вложен list comprehension.От матрица върни само четните числа, сплескани в един списък.
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-matrix = [x for row in matrix for x in row if x%2==0 ]
-print(matrix)
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# matrix = [x for row in matrix for x in row if x%2==0 ]
+# print(matrix)
